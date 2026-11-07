@@ -1,7 +1,7 @@
 {
   "name": "Engineering Calculators",
   "short_name": "EngCalc",
-  "description": "93 mechanical, process, maintenance, energy and project engineering calculators – works offline.",
+  "description": "85 mechanical, process, maintenance, welding, energy and project engineering calculators – works offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

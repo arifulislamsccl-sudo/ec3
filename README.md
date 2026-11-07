@@ -1,6 +1,6 @@
 # Engineering Calculators – Mobile App (PWA)
 
-৯৩টা mechanical, process, maintenance, energy ও project engineering calculator।
+৮৫টা mechanical, process, maintenance, energy ও project engineering calculator।
 Internet ছাড়াও চলে। শুধু হলুদ input ঘর বদলানো যায়।
 
 ## ফাইলগুলো
@@ -38,4 +38,6 @@ Internet ছাড়াও চলে। শুধু হলুদ input ঘর 
 ফলাফল preliminary design, screening ও maintenance সিদ্ধান্তের জন্য। Pressure equipment, lifting gear ও relief system চূড়ান্ত করার আগে প্রযোজ্য code ও qualified engineer দিয়ে যাচাই করুন।
 
 ## এই আপডেটে নতুন
-Version 2 (PLUS Excel)-এর ২২টা নতুন calculator তিনটা আলাদা মডিউলে যোগ হয়েছে: **Design+** (D1–D10), **Equip+** (Q1–Q6), **Site+** (S1–S6) — Project Cost, MTO, Roofing, Rigging, Unit Converter ইত্যাদি।
+Version 1-এর ৭১টা calculator অপরিবর্তিত। Version 2 থেকে শুধু নতুন ১০টা যোগ হয়েছে দুটো আলাদা মডিউলে: **Utility+** (UT1–UT4: Cooling Tower, Boiler & Fuel, Compressed Air, Ventilation) ও **Site+** (S1–S6: Project Cost, MTO, Steel Section Weight, Roofing, Rigging, Material Selection)।
+
+**Welding** মডিউল: W1 Dissimilar Metal Weld (SS↔MS ইত্যাদি), W2 Electrode by Metal, W3 Preheat & PWHT, W4 Pipe Bevel & Root Gap।

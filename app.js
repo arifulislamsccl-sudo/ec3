@@ -38,14 +38,14 @@
     "Project & Finance": '<path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/>',
     "Unit Converters": '<path d="M4 8h15l-3.5-3.5M20 16H5l3.5 3.5"/>',
     "Materials & Insulation": '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
-    "Plant Design": '<path d="M3 20h18M5 20V9l4 3V9l4 3V5h3l1 15"/><path d="M17 8h2"/>',
-    "Equipment & MOC": '<rect x="6" y="3" width="12" height="18" rx="5"/><path d="M6 9h12M6 15h12"/><circle cx="12" cy="12" r="1"/>',
+    "Utilities Plus": '<path d="M3 20h18M5 20V9l4 3V9l4 3V5h3l1 15"/><path d="M17 8h2"/>',
     "Site & Project": '<path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/>',
+    "Welding": '<path d="M14 4l6 6-3 3-6-6z"/><path d="M11 7l-7 7 3 3 7-7"/><path d="M5 19l-2 2M8 21l-1-2M3 16l2 1"/>',
     "Home": '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
     "About": '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
     "Data": '<path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h6"/>'
   };
-  const SHORT = { "Pumps": "Pump", "Piping": "Pipe", "Vessels & Tanks": "Vessel", "Heat Transfer": "Heat", "Process": "Process", "Machine Design": "Machine", "Maintenance": "Maint.", "Energy & Utilities": "Energy", "Project": "Project", "Beams": "Beam", "Structural": "Steel", "Chemical Compatibility": "Chemical", "Insulation": "Insul.", "Unit Converter": "Units", "Structures": "Steel", "Project & Finance": "Project", "Unit Converters": "Units", "Materials & Insulation": "Materials", "Plant Design": "Design+", "Equipment & MOC": "Equip+", "Site & Project": "Site+" };
+  const SHORT = { "Pumps": "Pump", "Piping": "Pipe", "Vessels & Tanks": "Vessel", "Heat Transfer": "Heat", "Process": "Process", "Machine Design": "Machine", "Maintenance": "Maint.", "Energy & Utilities": "Energy", "Project": "Project", "Beams": "Beam", "Structural": "Steel", "Chemical Compatibility": "Chemical", "Insulation": "Insul.", "Unit Converter": "Units", "Structures": "Steel", "Project & Finance": "Project", "Unit Converters": "Units", "Materials & Insulation": "Materials", "Utilities Plus": "Utility+", "Site & Project": "Site+", "Welding": "Welding" };
   const OK_I = '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/>', WARN_I = '<path d="M12 3.5l9 16H3z"/><path d="M12 10v4M12 17v.01"/>', BAD_I = '<circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/>', NEU_I = '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>';
   const iconFor = sc => sc === "ok" ? OK_I : sc === "warn" ? WARN_I : sc === "bad" ? BAD_I : NEU_I;
   const CHEV = '<path d="M9 6l6 6-6 6"/>';
@@ -55,6 +55,12 @@
   const NAMES = {"P1": ["Pump Power & Type", "Shaft power, motor size & best pump type"], "P2": ["NPSH & Cavitation", "NPSH available vs required"], "P3": ["Affinity Laws (VFD)", "Speed change or impeller trim"], "P4": ["Pump Total Head", "System head build-up (TDH)"], "P5": ["Pump Specific Speed", "Impeller type & suction energy"], "PM": ["Pump & Motor Selection", "Complete pump, motor & pipe selection"], "PI1": ["Pipe Sizing", "By fluid & pipe material"], "PI2": ["Pipe Pressure Drop", "Darcy–Weisbach friction loss"], "PI3": ["Pipe Wall Thickness", "ASME B31.3 schedule selection"], "PI4": ["Thermal Expansion", "Free expansion & loop leg length"], "PI5": ["Pipe Test Pressure", "Hydro & pneumatic test (ASME B31.3)"], "V1": ["Pressure Vessel", "ASME VIII Div.1 shell & 2:1 head"], "V2": ["Storage Tank (API 650)", "Shell, bottom, roof & support structure"], "V3": ["Horizontal Tank Volume", "Liquid volume at any level"], "V4": ["Vertical Tank Volume", "Volume, fill & drain time"], "H1": ["Heat Balance", "Duty & utility flow"], "H2": ["Heat Exchanger Area", "LMTD, area & tube count"], "H3": ["Steam Consumption", "Steam needed for a heating duty"], "H4": ["Batch Heating / Cooling", "Time to reach target temperature"], "H5": ["Insulation Heat Loss", "Heat loss, surface temperature & savings"], "PR1": ["Control Valve – Liquid", "Cv / Kv with cavitation check"], "PR2": ["Control Valve – Gas", "Kv / Cv with choked-flow check"], "PR3": ["Safety Valve – Gas", "API 520 orifice, critical flow"], "PR4": ["Safety Valve – Liquid", "API 520 relief area"], "PR5": ["Compressor Power", "Stages, discharge temperature & motor"], "PR6": ["Gas Flow Conversion", "Actual ↔ Nm³/h, Sm³/h, SCFM, kg/h"], "PR7": ["Agitator Power", "Power, kW/m³ & tip speed"], "PR8": ["Stream Mixing", "Blended flow, concentration & temperature"], "PR9": ["Dilution", "Water needed to dilute a concentrate"], "M1": ["Motor Current & Protection", "Full-load current, breaker & starter"], "M2": ["Shaft Diameter", "Combined bending & torsion (ASME)"], "M3": ["Bearing Life (L10)", "Rating life & required capacity"], "M4": ["Bolt Torque & Preload", "Tightening torque for metric bolts"], "M5": ["V-Belt Drive", "Pulley size, belt length & wrap angle"], "M6": ["Gearbox & Coupling", "Ratio, torque & service factor"], "M7": ["Sling Tension", "Load per sling leg vs rated limit"], "M8": ["Lifting Beam (ISMB)", "Hoist beam section check"], "R1": ["MTBF, MTTR & Availability", "Reliability from the failure log"], "R2": ["OEE", "Availability × performance × quality"], "R3": ["Weibull & PM Interval", "B10 life & optimal replacement age"], "R4": ["Vibration Severity", "ISO 10816 zones A–D"], "R5": ["Spare Parts EOQ", "Order quantity, safety stock & reorder point"], "R6": ["Repair vs Replace", "Equivalent annual cost comparison"], "R7": ["Bearing Greasing", "Re-greasing interval & quantity"], "R8": ["Maintenance KPIs", "Benchmark against world class"], "R9": ["FMEA & Criticality", "RPN ranking for up to 25 items"], "E1": ["Air Leak Cost", "Compressed-air loss & yearly cost"], "E2": ["Steam Leak & Trap Loss", "Steam lost & annual cost"], "E3": ["Motor Upgrade Payback", "IE3 / IE4 saving & payback"], "E4": ["VFD Savings", "Throttle vs variable-speed control"], "E5": ["Boiler Efficiency", "Direct method & steam cost"], "E6": ["Cooling Tower Performance", "Range, approach & make-up water"], "E7": ["Chiller kW/TR & COP", "Chiller performance benchmark"], "E8": ["Fan & Blower Power", "Shaft & motor power"], "E9": ["Power-Factor Capacitor", "kVAR needed & current reduction"], "J1": ["NPV, IRR & Payback", "Investment appraisal"], "J2": ["Earned Value (EVM)", "CPI, SPI & forecast at completion"], "J3": ["Cost Estimate (Class 4–5)", "Six-tenths rule, cost index & Lang factor"], "J4": ["Man-hours to Duration", "Shutdown / project schedule"], "ST1": ["Beam & Channel Selection", "Point load + UDL, lightest section"], "ST2": ["Steel Weight BOM", "Sections, plates & pipes – up to 50 rows"], "CC1": ["Chemical Compatibility", "Pipe, flange & gasket materials"], "IN1": ["Insulation Design", "Type, thickness & material take-off"], "IN2": ["Insulation BOM", "Up to 30 pipelines"], "U1": ["Pressure Converter", "bar, psi, kPa, kg/cm², mmHg …"], "U2": ["Flow Converter", "m³/h, L/s, US gpm, CFM …"], "U3": ["Power Converter", "kW, HP, kcal/h, TR …"], "U4": ["Energy Converter", "kWh, MJ, kcal, BTU …"], "U5": ["Length Converter", "mm, inch, ft, m …"], "U6": ["Mass Converter", "kg, tonne, lb …"], "U7": ["Temperature Converter", "°C, °F, K"]};
   const GROUPS = { "Beams": "Structures", "Structural": "Structures", "Project": "Project & Finance", "Unit Converter": "Unit Converters", "Chemical Compatibility": "Materials & Insulation", "Insulation": "Materials & Insulation" };
   D.index.forEach(x => { const n = NAMES[x.code]; if (n) { x.title = n[0]; x.sub = n[1]; } x.g = GROUPS[x.g] || x.g; });
+  const CIC = {"pump": "<circle cx=\"11\" cy=\"13\" r=\"6.5\"/><circle cx=\"11\" cy=\"13\" r=\"2\"/><path d=\"M11 6.5h9v4.5\"/>", "pipe": "<path d=\"M3 9h9a4 4 0 0 1 4 4v8\"/><path d=\"M3 4h9a9 9 0 0 1 9 9v8\"/>", "gauge": "<path d=\"M4 17a8 8 0 1 1 16 0\"/><path d=\"M12 17l4-5\"/><circle cx=\"12\" cy=\"17\" r=\"1.3\"/>", "speed": "<path d=\"M3 17a9 9 0 0 1 18 0\"/><path d=\"M7 17a5 5 0 0 1 10 0\"/><path d=\"M12 17l-3-6\"/>", "rise": "<path d=\"M4 20l6-6 4 4 6-8\"/><path d=\"M15 10h5v5\"/>", "valve": "<path d=\"M3 8v8l9-4zM21 8v8l-9-4z\"/><path d=\"M12 12V5M9 5h6\"/>", "shield": "<path d=\"M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z\"/><path d=\"M9 12l2 2 4-4\"/>", "vessel": "<rect x=\"7\" y=\"3\" width=\"10\" height=\"18\" rx=\"5\"/><path d=\"M7 9.5h10M7 14.5h10\"/>", "tank": "<path d=\"M5 7c0-2 14-2 14 0v12c0 2-14 2-14 0z\"/><path d=\"M5 7c0 2 14 2 14 0M5 13c0 2 14 2 14 0\"/>", "htank": "<rect x=\"3\" y=\"7\" width=\"18\" height=\"10\" rx=\"5\"/><path d=\"M3 13h18\"/>", "hx": "<rect x=\"3\" y=\"7\" width=\"18\" height=\"10\" rx=\"2.5\"/><path d=\"M6.5 10.5h11M6.5 13.5h11\"/>", "flame": "<path d=\"M12 3c1 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4 3-6 0 2 1 3 2 3 0-3-1-5 1-8z\"/>", "steam": "<path d=\"M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A4 4 0 1 1 17 18z\"/>", "therm": "<path d=\"M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z\"/><path d=\"M12 9v7\"/>", "layers": "<path d=\"M12 3l9 5-9 5-9-5z\"/><path d=\"M3 13l9 5 9-5\"/>", "air": "<path d=\"M3 8h11a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h7\"/>", "fan": "<circle cx=\"12\" cy=\"12\" r=\"2\"/><path d=\"M12 10c0-4 1-7 4-7 2 0 2 3-1 5M14 12c4 0 7 1 7 4 0 2-3 2-5-1M12 14c0 4-1 7-4 7-2 0-2-3 1-5M10 12c-4 0-7-1-7-4 0-2 3-2 5 1\"/>", "flask": "<path d=\"M9 3h6M10 3v6l-5.2 9.2A2 2 0 0 0 6.5 21h11a2 2 0 0 0 1.7-2.8L14 9V3\"/><path d=\"M7.5 15h9\"/>", "mix": "<path d=\"M4 4l8 8v9M20 4l-8 8\"/>", "drop": "<path d=\"M12 3s6 7 6 11.2A6 6 0 0 1 6 14.2C6 10 12 3 12 3z\"/>", "bolt": "<path d=\"M13 2.5L4.5 14H11l-1 7.5L19.5 10H13z\"/>", "shaft": "<path d=\"M2 12h20\"/><rect x=\"8\" y=\"8\" width=\"8\" height=\"8\" rx=\"1.5\"/>", "bearing": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><circle cx=\"12\" cy=\"5.5\" r=\"1\"/><circle cx=\"12\" cy=\"18.5\" r=\"1\"/><circle cx=\"5.5\" cy=\"12\" r=\"1\"/><circle cx=\"18.5\" cy=\"12\" r=\"1\"/>", "nut": "<path d=\"M9 3h6l2 3-2 3H9L7 6z\"/><path d=\"M10 9v12M14 9v12M10 13h4M10 17h4\"/>", "belt": "<circle cx=\"6\" cy=\"12\" r=\"3.5\"/><circle cx=\"18\" cy=\"12\" r=\"2\"/><path d=\"M6 8.5L18 10M6 15.5L18 14\"/>", "gear": "<circle cx=\"12\" cy=\"12\" r=\"3.2\"/><path d=\"M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1\"/>", "hook": "<path d=\"M12 3v7\"/><path d=\"M12 10a4 4 0 1 1-4 4\"/><path d=\"M8 3h8\"/>", "beam": "<path d=\"M4 5h16M4 19h16M12 5v14\"/>", "pulse": "<path d=\"M3 12h4l3-7 4 14 3-7h4\"/>", "pie": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 3a9 9 0 0 1 9 9h-9z\"/>", "curve": "<path d=\"M3 20h18M3 20V4\"/><path d=\"M6 17c4 0 5-10 9-10 2 0 3 2 5 2\"/>", "wave": "<path d=\"M2 12c2 0 2-6 4-6s2 12 4 12 2-12 4-12 2 12 4 12 2-6 4-6\"/>", "box": "<path d=\"M3 7l9-4 9 4v10l-9 4-9-4z\"/><path d=\"M3 7l9 4 9-4M12 11v10\"/>", "swap": "<path d=\"M7 4L3 8l4 4M3 8h13M17 12l4 4-4 4M21 16H8\"/>", "wrench": "<path d=\"M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z\"/>", "bars": "<path d=\"M4 20V11M10 20V5M16 20v-6M21 20H3\"/>", "alert": "<path d=\"M12 3.5l9 16H3z\"/><path d=\"M12 10v4M12 17v.01\"/>", "snow": "<path d=\"M12 2v20M3.5 7l17 10M20.5 7l-17 10\"/>", "cap": "<path d=\"M3 12h7M14 12h7M10 6v12M14 6v12\"/>", "coin": "<rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\"/>", "trend": "<path d=\"M3 17l6-6 4 4 8-8\"/><path d=\"M3 21h18\"/>", "calc": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"2\"/><path d=\"M8 7h8M8 11h1M12 11h1M15.5 11h.5M8 15h1M12 15h1M15.5 15h.5\"/>", "clock": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/>", "list": "<path d=\"M9 6h11M9 12h11M9 18h11\"/><circle cx=\"5\" cy=\"6\" r=\"1\"/><circle cx=\"5\" cy=\"12\" r=\"1\"/><circle cx=\"5\" cy=\"18\" r=\"1\"/>", "scale": "<path d=\"M12 4v16M6 20h12M5 8h14\"/><path d=\"M5 8l-3 6a3 3 0 0 0 6 0zM19 8l-3 6a3 3 0 0 0 6 0z\"/>", "roof": "<path d=\"M3 12l9-7 9 7\"/><path d=\"M5 11v8h14v-8\"/><path d=\"M8 15h8\"/>", "ruler": "<path d=\"M3 17L17 3l4 4L7 21z\"/><path d=\"M7 13l2 2M10 10l2 2M13 7l2 2\"/>", "tower": "<path d=\"M7 21l2-14h6l2 14\"/><path d=\"M8 13h8M9 3c0 2 6 2 6 0\"/>"};
+  CIC.link = '<path d="M10 14a4 4 0 0 1 0-5.7l3-3a4 4 0 0 1 5.7 5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 1 0 5.7l-3 3a4 4 0 0 1-5.7-5.7l1.5-1.5"/>';
+  CIC.rod = '<path d="M5 19L19 5"/><path d="M15 5h4v4"/><circle cx="6" cy="18" r="2"/>';
+  CIC.bevel = '<path d="M3 20h7l3-6V4"/><path d="M21 20h-7l-3-6"/><path d="M13 4v10"/>';
+  const CODEIC = {"W1":"link","W2":"rod","W3":"flame","W4":"bevel","P1": "pump", "P2": "gauge", "P3": "speed", "P4": "rise", "P5": "pump", "PM": "pump", "PI1": "pipe", "PI2": "curve", "PI3": "ruler", "PI4": "therm", "PI5": "gauge", "V1": "vessel", "V2": "tank", "V3": "htank", "V4": "tank", "H1": "therm", "H2": "hx", "H3": "steam", "H4": "clock", "H5": "layers", "PR1": "valve", "PR2": "valve", "PR3": "shield", "PR4": "shield", "PR5": "air", "PR6": "swap", "PR7": "fan", "PR8": "mix", "PR9": "drop", "M1": "bolt", "M2": "shaft", "M3": "bearing", "M4": "nut", "M5": "belt", "M6": "gear", "M7": "hook", "M8": "beam", "R1": "pulse", "R2": "pie", "R3": "curve", "R4": "wave", "R5": "box", "R6": "wrench", "R7": "drop", "R8": "bars", "R9": "alert", "E1": "air", "E2": "steam", "E3": "bolt", "E4": "speed", "E5": "flame", "E6": "tower", "E7": "snow", "E8": "fan", "E9": "cap", "J1": "coin", "J2": "trend", "J3": "calc", "J4": "clock", "ST1": "beam", "ST2": "list", "CC1": "flask", "IN1": "layers", "IN2": "list", "U1": "gauge", "U2": "swap", "U3": "bolt", "U4": "flame", "U5": "ruler", "U6": "scale", "U7": "therm", "UT1": "tower", "UT2": "flame", "UT3": "air", "UT4": "fan", "S1": "coin", "S2": "list", "S3": "scale", "S4": "roof", "S5": "hook", "S6": "flask"};
+  const calcIcon = (x, w) => svg(CIC[CODEIC[x.code]] || ICON[x.g] || ICON.Process, w || "1.7");
   const meta = {}; D.index.forEach(x => meta[x.s] = x);
   const groups = []; const gmap = {};
   D.index.forEach(x => { if (!gmap[x.g]) { gmap[x.g] = []; groups.push(x.g); } gmap[x.g].push(x); });
@@ -75,7 +81,7 @@
   const setVal = (sh, a, v) => { saved[sh + "!" + a] = v; book.setInput(sh, a, v); persist(); };
   const clearVal = (sh, a) => { delete saved[sh + "!" + a]; book.setInput(sh, a, undefined); persist(); };
   const unit = u => (u && u !== "–" && u !== "-" && u !== "×") ? u : (u === "×" ? "×" : "");
-  const ACR = new Set(["NPSH", "IEC", "API", "ASME", "PSV", "OEE", "MTBF", "MTTR", "EOQ", "VFD", "TDH", "ISO", "BOM", "RPN", "FLC", "HP", "MAWP", "LMTD", "COP", "TR", "PF", "NPV", "IRR", "CPI", "SPI", "EAC", "ETC", "VAC", "TCPI", "CS", "SS", "PP", "PVC", "HDPE", "FRP", "PTFE", "ISMB", "ISMC", "ISA", "NPS", "DN", "ID", "OD", "RT", "CA", "BEP", "PWHT"]);
+  const ACR = new Set(["NPSH", "IEC", "API", "ASME", "PSV", "OEE", "MTBF", "MTTR", "EOQ", "VFD", "TDH", "ISO", "BOM", "RPN", "FLC", "HP", "MAWP", "LMTD", "COP", "TR", "PF", "NPV", "IRR", "CPI", "SPI", "EAC", "ETC", "VAC", "TCPI", "CS", "SS", "PP", "PVC", "HDPE", "FRP", "PTFE", "ISMB", "ISMC", "ISA", "NPS", "DN", "ID", "OD", "RT", "CA", "BEP", "PWHT", "TIG", "GTAW", "SMAW", "MIG", "FCAW", "MS", "SS", "CE", "MOC", "MTO", "PSV"]);
   const sentence = l => { if (!l) return l; const w = l.match(/^[A-Z][A-Z\-]+\b/); if (!w || ACR.has(w[0])) return l; let first = true; return l.replace(/\b[A-Z][A-Z\-]{1,}\b/g, m => { if (ACR.has(m)) { first = false; return m; } const r = first ? m.charAt(0) + m.slice(1).toLowerCase() : m.toLowerCase(); first = false; return r; }); };
   function rangeValues(sh, f) {
     try { const r = book.evalFormula(sh, f); if (r instanceof XL.Range) { const out = []; for (let i = r.r1; i <= r.r2; i++) for (let j = r.c1; j <= r.c2; j++) { const v = book.cell(r.sh, i, j); if (v !== null && v !== "" && !XL.isErr(v)) out.push(v); } return out; } } catch (e) { /* bad list */ }
@@ -141,7 +147,7 @@
     items.forEach(x => {
       if (tiles && x.g !== lastG) { lastG = x.g; const lab = h("div", { class: "tl-g" }, svg(ICON[x.g] || ICON.Process), x.g); lab._g = x.g; lst.append(lab); }
       const st = h("span"), s = h("div", { class: "li-s" }, h("i", { class: "dot" }), st);
-      const b = h("button", { class: "li", onclick: () => go(x.s) }, h("span", { class: "li-c" }, x.code), h("span", { class: "li-t" }, x.title), svg(CHEV), s);
+      const b = h("button", { class: "li", onclick: () => go(x.s) }, h("span", { class: "li-c" }, calcIcon(x)), h("span", { class: "li-t" }, x.title), svg(CHEV), s);
       b._t = (x.code + " " + x.title + " " + (x.sub || "") + " " + x.desc + " " + x.g).toLowerCase();
       rows.push({ b, s, st, x }); lst.append(b);
     });
@@ -152,7 +158,7 @@
     items.forEach((x, i) => {
       const st = h("span"), s = h("div", { class: "li-s" }, h("i", { class: "dot" }), st);
       const b = h("button", { class: "gi", style: "--d:" + (i * 28) + "ms", onclick: () => go(x.s) },
-        h("span", { class: "gi-c" }, h("span", null, x.code)),
+        h("span", { class: "gi-c" }, calcIcon(x, "1.6")),
         h("span", { class: "gi-b" }, h("span", { class: "gi-t" }, x.title), h("span", { class: "gi-d" }, x.sub || x.desc), s),
         h("span", { class: "gi-go" }, svg(CHEV, "2")));
       if (x.d) rows.push({ b, s, st, x }); else s.hidden = true; lst.append(b);
@@ -171,14 +177,12 @@
     view.innerHTML = "";
     const mark = svg('<rect x="1" y="1" width="22" height="22" rx="6" fill="#18232F" stroke="#5B4A2C" stroke-width=".8"/><circle cx="12" cy="12" r="5.2" stroke="#D8B26E" stroke-width="1.6"/><circle cx="12" cy="12" r="1.6" fill="#D8B26E" stroke="none"/><path d="M12 3.6v2.6M12 17.8v2.6M3.6 12h2.6M17.8 12h2.6" stroke="#F3EFE7" stroke-width="1.6"/>');
     view.append(h("section", { class: "cock fade" },
-      h("div", { class: "ck-top" }, mark, h("div", null, h("div", { class: "ck-name" }, h("b", null, "EngCalc")), h("i", { class: "credit", role: "link", tabindex: "0", onclick: () => { location.hash = "#about"; } }, "Design & Developed by Md. Ariful Islam"))),
-      h("div", { class: "ck-stats" }, h("div", null, h("b", null, D.index.length), h("span", null, "Calculators")), h("div", null, h("b", null, groups.length), h("span", null, "Modules")), h("div", null, h("b", null, "100%"), h("span", null, "Offline")))));
+      h("div", { class: "ck-top" }, mark, h("div", null, h("div", { class: "ck-name" }, h("b", null, "EngCalc")), h("i", { class: "credit", role: "link", tabindex: "0", onclick: () => { location.hash = "#about"; } }, "Design & Developed by Md. Ariful Islam")))));
     const q = h("input", { type: "search", placeholder: "Search pump, pipe, H2SO4, tank…", "aria-label": "Search" });
     view.append(h("div", { class: "search" }, svg('<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>'), q));
     const modH = h("div", { class: "sec-h" }, "Modules", h("i"));
     const mods = h("div", { class: "mods" });
     groups.forEach(g => { const nw = gmap[g].some(x => x.new); mods.append(h("button", { class: "mod" + (nw ? " new" : ""), onclick: () => { location.hash = "#g-" + slug(g); } }, nw ? h("span", { class: "nw" }, "NEW") : null, svg(ICON[g] || ICON.Process), SHORT[g] || g, h("small", null, gmap[g].length))); });
-    mods.append(h("button", { class: "mod wide", onclick: () => { location.hash = "#reference-data"; } }, svg(ICON.Data), "Reference data", h("small", null, "fluids · pipes · steam · motors ›")));
     view.append(modH, mods);
     const all = h("div"); const { lst, rows } = statusList(D.index, true);
     let open = false;
@@ -187,17 +191,18 @@
     toggle.addEventListener("click", () => setOpen(!open));
     all.append(toggle, lst); setOpen(false);
     view.append(all);
+    view.append(h("button", { class: "refl", type: "button", onclick: () => { location.hash = "#reference-data"; } }, svg(ICON.Data), h("span", null, "Reference data"), svg(CHEV)));
     const none = h("p", { class: "foot", hidden: true }, "No calculator matches. Try a shorter word, like “pump” or “tank”.");
     view.append(none, h("p", { class: "foot" }, "For preliminary design, screening and maintenance decisions. Check pressure equipment, lifting gear and relief systems against the current code with a qualified engineer."));
     q.addEventListener("input", () => { const t = q.value.trim().toLowerCase(); let any = false; rows.forEach(r => { r.b.hidden = !!t && !r.b._t.includes(t); any = any || !r.b.hidden; }); lst.querySelectorAll(".tl-g").forEach(l => { l.hidden = !rows.some(r => r.x.g === l._g && !r.b.hidden); }); mods.hidden = !!t; modH.hidden = !!t; none.hidden = any; if (t) { lst.hidden = false; toggle.hidden = true; } else { toggle.hidden = false; setOpen(open); } });
     fillStatuses(rows);
   }
-  const GDESC = { "Pumps": "Power, head, NPSH and complete pump & motor selection", "Piping": "Line sizing, pressure drop, wall thickness and testing", "Vessels & Tanks": "Pressure vessels, storage tanks and tank volumes", "Heat Transfer": "Heat balance, exchangers, steam and insulation loss", "Process": "Control valves, relief valves, compressors and mixing", "Machine Design": "Motors, shafts, bearings, bolts, drives and lifting", "Maintenance": "Reliability, OEE, vibration, spares and FMEA", "Energy & Utilities": "Leaks, motors, VFDs, boilers, chillers and power factor", "Project & Finance": "NPV, earned value, estimates and schedules", "Structures": "Beam selection and steel weight take-off", "Materials & Insulation": "Chemical compatibility, insulation design and BOM", "Unit Converters": "Quick engineering unit conversions", "Plant Design": "New in v2: pipe, pump, valves, exchangers, boiler, air, ventilation & insulation", "Equipment & MOC": "New in v2: vessel, tank, material selection, compatibility, vibration & motors", "Site & Project": "New in v2: rigging, steel, MTO, roofing, project cost & unit converter" };
+  const GDESC = { "Pumps": "Power, head, NPSH and complete pump & motor selection", "Piping": "Line sizing, pressure drop, wall thickness and testing", "Vessels & Tanks": "Pressure vessels, storage tanks and tank volumes", "Heat Transfer": "Heat balance, exchangers, steam and insulation loss", "Process": "Control valves, relief valves, compressors and mixing", "Machine Design": "Motors, shafts, bearings, bolts, drives and lifting", "Maintenance": "Reliability, OEE, vibration, spares and FMEA", "Energy & Utilities": "Leaks, motors, VFDs, boilers, chillers and power factor", "Project & Finance": "NPV, earned value, estimates and schedules", "Structures": "Beam selection and steel weight take-off", "Materials & Insulation": "Chemical compatibility, insulation design and BOM", "Unit Converters": "Quick engineering unit conversions", "Utilities Plus": "Cooling tower, boiler & fuel, compressed air and ventilation selection", "Welding": "Electrode for each metal & bi-metal joints, preheat & PWHT, pipe bevel and root gap", "Site & Project": "Project cost, MTO, steel weight, roofing, rigging and material selection" };
   function renderGroup(g) {
     ups = []; curSheet = null;
-    chrome(g, gmap[g].length + " calculators", { group: g, back: true });
+    chrome(g, "", { group: g, back: true });
     view.innerHTML = "";
-    view.append(h("section", { class: "gp fade" }, h("span", { class: "gp-i" }, svg(ICON[g] || ICON.Process, "1.6")), h("div", null, h("b", null, g, gmap[g].some(x => x.new) ? h("span", { class: "nw in" }, "NEW") : null), h("span", null, GDESC[g] || (gmap[g].length + " calculators"))), h("em", null, gmap[g].length)));
+    view.append(h("section", { class: "gp fade" }, h("span", { class: "gp-i" }, svg(ICON[g] || ICON.Process, "1.6")), h("div", null, gmap[g].some(x => x.new) ? h("span", { class: "nw in" }, "NEW") : null, h("span", { class: "gp-d" }, GDESC[g] || ""))));
     const { lst, rows } = groupList(gmap[g]);
     view.append(lst);
     fillStatuses(rows);
@@ -241,7 +246,7 @@
   function renderCalc(sheet, page) {
     ups = []; curSheet = sheet;
     const m = meta[sheet] || { code: "", title: sheet, g: "" };
-    chrome(m.title, m.code + " · " + m.g, { group: m.g, back: true, reset: true, hints: true });
+    chrome(m.title, m.g, { group: m.g, back: true, reset: true, hints: true });
     view.innerHTML = "";
     // classify blocks
     const ins = [], calc = [], res = [], notes = [];
@@ -287,9 +292,9 @@
     // related calculators
     const i = order.indexOf(sheet), prev = order[i - 1], next = order[i + 1];
     const rel = h("div", { class: "rel" });
-    if (prev && meta[prev]) rel.append(h("button", { class: "rc", onclick: () => go(prev) }, "‹ ", h("b", null, meta[prev].code), meta[prev].title.split(/[–,(]/)[0].trim()));
-    (gmap[m.g] || []).filter(x => x.s !== sheet && x.s !== prev && x.s !== next).forEach(x => rel.append(h("button", { class: "rc", onclick: () => go(x.s) }, h("b", null, x.code), x.title.split(/[–,(]/)[0].trim())));
-    if (next && meta[next]) rel.append(h("button", { class: "rc", onclick: () => go(next) }, h("b", null, meta[next].code), meta[next].title.split(/[–,(]/)[0].trim(), " ›"));
+    if (prev && meta[prev]) rel.append(h("button", { class: "rc", onclick: () => go(prev) }, "‹ ", h("span", { class: "rc-i" }, calcIcon(meta[prev])), meta[prev].title.split(/[–,(]/)[0].trim()));
+    (gmap[m.g] || []).filter(x => x.s !== sheet && x.s !== prev && x.s !== next).forEach(x => rel.append(h("button", { class: "rc", onclick: () => go(x.s) }, h("span", { class: "rc-i" }, calcIcon(x)), x.title.split(/[–,(]/)[0].trim())));
+    if (next && meta[next]) rel.append(h("button", { class: "rc", onclick: () => go(next) }, h("span", { class: "rc-i" }, calcIcon(meta[next])), meta[next].title.split(/[–,(]/)[0].trim(), " ›"));
     view.append(rel);
     // tabs
     const checks = textRes.filter(b => b !== verdictB);
@@ -341,7 +346,7 @@
   function renderCalc2(sheet, page) {
     ups = []; curSheet = sheet;
     const m = meta[sheet] || { code: "", title: sheet, g: "" };
-    chrome(m.title, (m.code ? m.code + " · " : "") + m.g, { group: m.g, back: true, reset: true, hints: true });
+    chrome(m.title, m.g, { group: m.g, back: true, reset: true, hints: true });
     view.innerHTML = "";
     const ins = [], calc = [], res = [], notes = [];
     let inRes = false;
@@ -365,7 +370,7 @@
     if (heroB) {
       const bv = h("span", { class: "big" }), bu = h("span", { class: "big-u" }, unit(heroB.u));
       const left = h("div", { class: "hero-l" }, h("div", null, bv, bu), heroB.n && !/^Internal$/.test(heroB.n) ? h("div", { class: "big-l" }, heroB.n) : null);
-      bind(sheet, heroB.a, v => { const t = strip(show(v, heroB.nf)); bv.textContent = t; bv.classList.toggle("long", t.length > 9); bv.classList.toggle("xlong", t.length > 22); bu.hidden = typeof v !== "number" || /%/.test(heroB.nf || ""); });
+      bind(sheet, heroB.a, v => { const t = strip(show(v, heroB.nf)); bv.textContent = t; bv.classList.toggle("long", t.length > 6); bv.classList.toggle("xlong", t.length > 22); bu.hidden = typeof v !== "number" || /%/.test(heroB.nf || ""); });
       const row = h("div", { class: "hero-main" }, left);
       if (sideB) { const sv = h("div", { class: "side-v" }); row.append(h("div", { class: "side" }, h("div", { class: "side-l" }, sentence(sideB.l)), sv, h("div", { class: "side-u" }, unit(sideB.u)))); bind(sheet, sideB.a, v => { sv.textContent = show(v, sideB.nf); }); }
       hero.append(row);
@@ -391,7 +396,7 @@
       stats.forEach(b => { const v = h("div", { class: "st-v" }), cell = h("div", null, h("div", { class: "st-l" }, sentence(b.l)), v); st.append(cell); bind(sheet, b.a, x => { v.textContent = show(x, b.nf); const u = unit(b.u); if (u && typeof x === "number" && !(u === "%" && /%/.test(b.nf || ""))) v.append(h("small", null, u)); }); });
       hero.append(st);
     }
-    const topIns = ins.length > 0 && ins.length <= 2;
+    const topIns = ins.length > 0 && (ins.length <= 2 || /^W\d/.test(m.code || ""));
     if (topIns) {
       const c = h("section", { class: "card fade" });
       ins.forEach(b => { const u = unit(b.u); c.append(h("label", { class: "f stack" }, h("span", { class: "f-l" }, b.l), h("span", { class: "box" }, inputEl(sheet, b), u ? h("span", { class: "u" }, u) : null))); });
@@ -400,7 +405,7 @@
     view.append(hero);
     // related calculators
     const i = order.indexOf(sheet), prev = order[i - 1], next = order[i + 1];
-    const chip = (x, pre, post) => h("button", { class: "rc", onclick: () => go(x.s) }, pre || "", x.code ? h("b", null, x.code) : (x.em ? h("span", { class: "rc-e" }, x.em) : null), x.title.split(/[–,(]/)[0].trim(), post || "");
+    const chip = (x, pre, post) => h("button", { class: "rc", onclick: () => go(x.s) }, pre || "", h("span", { class: "rc-i" }, calcIcon(x)), x.title.split(/[–,(]/)[0].trim(), post || "");
     const rel = h("div", { class: "rel" });
     if (prev && meta[prev]) rel.append(chip(meta[prev], "‹ "));
     (gmap[m.g] || []).filter(x => x.s !== sheet && x.s !== prev && x.s !== next).forEach(x => rel.append(chip(x)));
@@ -461,7 +466,7 @@
   function renderGrid(sheet, page) {
     ups = []; curSheet = sheet;
     const m = meta[sheet] || { code: "", title: sheet, g: "" };
-    chrome(m.title, m.code + " · " + m.g, { group: m.g, back: true, reset: true });
+    chrome(m.title, m.g, { group: m.g, back: true, reset: true });
     view.innerHTML = "";
     const rows = page.rows.filter(r => r.r !== 2);
     const txtCol = {};
@@ -566,7 +571,7 @@
       h("div", { class: "ab-name" }, "MD. ARIFUL ISLAM"),
       h("div", { class: "ab-deg" }, "B. Sc. in Mechanical Engineer"),
       row('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>', "Email", "arifulislam.me@gmail.com", "mailto:arifulislam.me@gmail.com"),
-      row('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>', "Phone", "+880 1779-341833", "tel:+8801779341833"),
+      row('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>', "Phone", "+880 1779-111833", "tel:+8801779111833"),
       h("p", { class: "ab-tag" }, "Developed for engineering excellence, efficiency, and continuous improvement.")));
     view.append(h("p", { class: "foot ab-copy" }, "© 2026 MD. Ariful Islam. All Rights Reserved."));
   }
