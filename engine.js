@@ -251,6 +251,7 @@
         case "SEARCH": { const f = S(0), s = S(1); if (isErr(f)) return f; if (isErr(s)) return s; const i = s.toLowerCase().indexOf(f.toLowerCase()); return i < 0 ? E.VALUE : i + 1; }
         case "CONCAT": case "CONCATENATE": { let o = ""; for (let i = 0; i < args.length; i++) for (const v of this.vals(A(i))) { if (isErr(v)) return v; o += str(v); } return o; }
         case "TEXTJOIN": { const d = S(0), ig = bool(V(1)); const parts = []; for (let i = 2; i < args.length; i++) for (const v of this.vals(A(i))) { if (isErr(v)) return v; const s = str(v); if (ig && s === "") continue; parts.push(s); } return parts.join(d); }
+        case "MOD": { const a = N(0), b = N(1); if (isErr(a)) return a; if (isErr(b)) return b; if (b === 0) return E.DIV; return a - b * Math.floor(a / b); }
         case "TODAY": { const d = new Date(); return Math.round((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(1899, 11, 30)) / 864e5); }
         case "INDIRECT": { const t = S(0); if (isErr(t)) return t; const d = NAMES[t.trim().toUpperCase()]; if (d) return this.ev({ k: "ref", sh: d.sh, a: d.a, b: d.b }, sh); try { const ast = parse(t); if (ast.k === "ref") return this.ev(ast, sh); } catch (e) { /* bad ref */ } return E.REF; }
         case "RATE": { const n = N(0), p = N(1), pv = N(2); const fv = args.length > 3 ? N(3) : 0; if ([n, p, pv, fv].some(isErr)) return E.VALUE; return rate(n, p, pv, fv); }

@@ -40,12 +40,13 @@
     "Materials & Insulation": '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
     "Utilities Plus": '<path d="M3 20h18M5 20V9l4 3V9l4 3V5h3l1 15"/><path d="M17 8h2"/>',
     "Site & Project": '<path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/>',
+    "Steam": '<path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A4 4 0 1 1 17 18z"/><path d="M9 21v-1M12 21v-1M15 21v-1"/>',
     "Welding": '<path d="M14 4l6 6-3 3-6-6z"/><path d="M11 7l-7 7 3 3 7-7"/><path d="M5 19l-2 2M8 21l-1-2M3 16l2 1"/>',
     "Home": '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
     "About": '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
     "Data": '<path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h6"/>'
   };
-  const SHORT = { "Pumps": "Pump", "Piping": "Pipe", "Vessels & Tanks": "Vessel", "Heat Transfer": "Heat", "Process": "Process", "Machine Design": "Machine", "Maintenance": "Maint.", "Energy & Utilities": "Energy", "Project": "Project", "Beams": "Beam", "Structural": "Steel", "Chemical Compatibility": "Chemical", "Insulation": "Insul.", "Unit Converter": "Units", "Structures": "Steel", "Project & Finance": "Project", "Unit Converters": "Units", "Materials & Insulation": "Materials", "Utilities Plus": "Utility+", "Site & Project": "Site+", "Welding": "Welding" };
+  const SHORT = { "Pumps": "Pump", "Piping": "Pipe", "Vessels & Tanks": "Vessel", "Heat Transfer": "Heat", "Process": "Process", "Machine Design": "Machine", "Maintenance": "Maint.", "Energy & Utilities": "Energy", "Project": "Project", "Beams": "Beam", "Structural": "Steel", "Chemical Compatibility": "Chemical", "Insulation": "Insul.", "Unit Converter": "Units", "Structures": "Steel", "Project & Finance": "Project", "Unit Converters": "Units", "Materials & Insulation": "Materials", "Utilities Plus": "Utility+", "Site & Project": "Site+", "Welding": "Welding", "Steam": "Steam" };
   const OK_I = '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/>', WARN_I = '<path d="M12 3.5l9 16H3z"/><path d="M12 10v4M12 17v.01"/>', BAD_I = '<circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/>', NEU_I = '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>';
   const iconFor = sc => sc === "ok" ? OK_I : sc === "warn" ? WARN_I : sc === "bad" ? BAD_I : NEU_I;
   const CHEV = '<path d="M9 6l6 6-6 6"/>';
@@ -59,7 +60,10 @@
   CIC.link = '<path d="M10 14a4 4 0 0 1 0-5.7l3-3a4 4 0 0 1 5.7 5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 1 0 5.7l-3 3a4 4 0 0 1-5.7-5.7l1.5-1.5"/>';
   CIC.rod = '<path d="M5 19L19 5"/><path d="M15 5h4v4"/><circle cx="6" cy="18" r="2"/>';
   CIC.bevel = '<path d="M3 20h7l3-6V4"/><path d="M21 20h-7l-3-6"/><path d="M13 4v10"/>';
-  const CODEIC = {"W1":"link","W2":"rod","W3":"flame","W4":"bevel","P1": "pump", "P2": "gauge", "P3": "speed", "P4": "rise", "P5": "pump", "PM": "pump", "PI1": "pipe", "PI2": "curve", "PI3": "ruler", "PI4": "therm", "PI5": "gauge", "V1": "vessel", "V2": "tank", "V3": "htank", "V4": "tank", "H1": "therm", "H2": "hx", "H3": "steam", "H4": "clock", "H5": "layers", "PR1": "valve", "PR2": "valve", "PR3": "shield", "PR4": "shield", "PR5": "air", "PR6": "swap", "PR7": "fan", "PR8": "mix", "PR9": "drop", "M1": "bolt", "M2": "shaft", "M3": "bearing", "M4": "nut", "M5": "belt", "M6": "gear", "M7": "hook", "M8": "beam", "R1": "pulse", "R2": "pie", "R3": "curve", "R4": "wave", "R5": "box", "R6": "wrench", "R7": "drop", "R8": "bars", "R9": "alert", "E1": "air", "E2": "steam", "E3": "bolt", "E4": "speed", "E5": "flame", "E6": "tower", "E7": "snow", "E8": "fan", "E9": "cap", "J1": "coin", "J2": "trend", "J3": "calc", "J4": "clock", "ST1": "beam", "ST2": "list", "CC1": "flask", "IN1": "layers", "IN2": "list", "U1": "gauge", "U2": "swap", "U3": "bolt", "U4": "flame", "U5": "ruler", "U6": "scale", "U7": "therm", "UT1": "tower", "UT2": "flame", "UT3": "air", "UT4": "fan", "S1": "coin", "S2": "list", "S3": "scale", "S4": "roof", "S5": "hook", "S6": "flask"};
+  CIC.column = '<path d="M7 3h10M7 21h10M12 3v18"/><path d="M9 3v18M15 3v18" opacity=".45"/>';
+  CIC.shed = '<path d="M2 11l10-6 10 6"/><path d="M4 10v10M20 10v10M4 20h16"/><path d="M8 20v-5h8v5"/>';
+  CIC.truss = '<path d="M2 18h20L12 6z"/><path d="M7 18l2.5-6M17 18l-2.5-6M12 6v12M7 18l5-12M17 18l-5-12" opacity=".7"/>';
+  const CODEIC = {"SM1":"steam","SM2":"flame","SM3":"drop","PR10":"valve","M9":"shield","ST3":"column","ST4":"shed","ST5":"truss","H6":"hx","MT1":"drop","W1":"link","W2":"rod","W3":"flame","W4":"bevel","W5":"scale","W6":"pipe","P1": "pump", "P2": "gauge", "P3": "speed", "P4": "rise", "P5": "pump", "PM": "pump", "PI1": "pipe", "PI2": "curve", "PI3": "ruler", "PI4": "therm", "PI5": "gauge", "V1": "vessel", "V2": "tank", "V3": "htank", "V4": "tank", "H1": "therm", "H2": "hx", "H3": "steam", "H4": "clock", "H5": "layers", "PR1": "valve", "PR2": "valve", "PR3": "shield", "PR4": "shield", "PR5": "air", "PR6": "swap", "PR7": "fan", "PR8": "mix", "PR9": "drop", "M1": "bolt", "M2": "shaft", "M3": "bearing", "M4": "nut", "M5": "belt", "M6": "gear", "M7": "hook", "M8": "beam", "R1": "pulse", "R2": "pie", "R3": "curve", "R4": "wave", "R5": "box", "R6": "wrench", "R7": "drop", "R8": "bars", "R9": "alert", "E1": "air", "E2": "steam", "E3": "bolt", "E4": "speed", "E5": "flame", "E6": "tower", "E7": "snow", "E8": "fan", "E9": "cap", "J1": "coin", "J2": "trend", "J3": "calc", "J4": "clock", "ST1": "beam", "ST2": "list", "CC1": "flask", "IN1": "layers", "IN2": "list", "U1": "gauge", "U2": "swap", "U3": "bolt", "U4": "flame", "U5": "ruler", "U6": "scale", "U7": "therm", "UT1": "tower", "UT2": "flame", "UT3": "air", "UT4": "fan", "S1": "coin", "S2": "list", "S3": "scale", "S4": "roof", "S5": "hook", "S6": "flask"};
   const calcIcon = (x, w) => svg(CIC[CODEIC[x.code]] || ICON[x.g] || ICON.Process, w || "1.7");
   const meta = {}; D.index.forEach(x => meta[x.s] = x);
   const groups = []; const gmap = {};
@@ -81,7 +85,7 @@
   const setVal = (sh, a, v) => { saved[sh + "!" + a] = v; book.setInput(sh, a, v); persist(); };
   const clearVal = (sh, a) => { delete saved[sh + "!" + a]; book.setInput(sh, a, undefined); persist(); };
   const unit = u => (u && u !== "–" && u !== "-" && u !== "×") ? u : (u === "×" ? "×" : "");
-  const ACR = new Set(["NPSH", "IEC", "API", "ASME", "PSV", "OEE", "MTBF", "MTTR", "EOQ", "VFD", "TDH", "ISO", "BOM", "RPN", "FLC", "HP", "MAWP", "LMTD", "COP", "TR", "PF", "NPV", "IRR", "CPI", "SPI", "EAC", "ETC", "VAC", "TCPI", "CS", "SS", "PP", "PVC", "HDPE", "FRP", "PTFE", "ISMB", "ISMC", "ISA", "NPS", "DN", "ID", "OD", "RT", "CA", "BEP", "PWHT", "TIG", "GTAW", "SMAW", "MIG", "FCAW", "MS", "SS", "CE", "MOC", "MTO", "PSV"]);
+  const ACR = new Set(["NEMA", "IP", "NPSH", "IEC", "API", "ASME", "PSV", "OEE", "MTBF", "MTTR", "EOQ", "VFD", "TDH", "ISO", "BOM", "RPN", "FLC", "HP", "MAWP", "LMTD", "COP", "TR", "PF", "NPV", "IRR", "CPI", "SPI", "EAC", "ETC", "VAC", "TCPI", "CS", "SS", "PP", "PVC", "HDPE", "FRP", "PTFE", "ISMB", "ISMC", "ISA", "NPS", "DN", "ID", "OD", "RT", "CA", "BEP", "PWHT", "TIG", "GTAW", "SMAW", "MIG", "FCAW", "MS", "SS", "CE", "MOC", "MTO", "PSV"]);
   const sentence = l => { if (!l) return l; const w = l.match(/^[A-Z][A-Z\-]+\b/); if (!w || ACR.has(w[0])) return l; let first = true; return l.replace(/\b[A-Z][A-Z\-]{1,}\b/g, m => { if (ACR.has(m)) { first = false; return m; } const r = first ? m.charAt(0) + m.slice(1).toLowerCase() : m.toLowerCase(); first = false; return r; }); };
   function rangeValues(sh, f) {
     try { const r = book.evalFormula(sh, f); if (r instanceof XL.Range) { const out = []; for (let i = r.r1; i <= r.r2; i++) for (let j = r.c1; j <= r.c2; j++) { const v = book.cell(r.sh, i, j); if (v !== null && v !== "" && !XL.isErr(v)) out.push(v); } return out; } } catch (e) { /* bad list */ }
@@ -197,7 +201,7 @@
     q.addEventListener("input", () => { const t = q.value.trim().toLowerCase(); let any = false; rows.forEach(r => { r.b.hidden = !!t && !r.b._t.includes(t); any = any || !r.b.hidden; }); lst.querySelectorAll(".tl-g").forEach(l => { l.hidden = !rows.some(r => r.x.g === l._g && !r.b.hidden); }); mods.hidden = !!t; modH.hidden = !!t; none.hidden = any; if (t) { lst.hidden = false; toggle.hidden = true; } else { toggle.hidden = false; setOpen(open); } });
     fillStatuses(rows);
   }
-  const GDESC = { "Pumps": "Power, head, NPSH and complete pump & motor selection", "Piping": "Line sizing, pressure drop, wall thickness and testing", "Vessels & Tanks": "Pressure vessels, storage tanks and tank volumes", "Heat Transfer": "Heat balance, exchangers, steam and insulation loss", "Process": "Control valves, relief valves, compressors and mixing", "Machine Design": "Motors, shafts, bearings, bolts, drives and lifting", "Maintenance": "Reliability, OEE, vibration, spares and FMEA", "Energy & Utilities": "Leaks, motors, VFDs, boilers, chillers and power factor", "Project & Finance": "NPV, earned value, estimates and schedules", "Structures": "Beam selection and steel weight take-off", "Materials & Insulation": "Chemical compatibility, insulation design and BOM", "Unit Converters": "Quick engineering unit conversions", "Utilities Plus": "Cooling tower, boiler & fuel, compressed air and ventilation selection", "Welding": "Electrode for each metal & bi-metal joints, preheat & PWHT, pipe bevel and root gap", "Site & Project": "Project cost, MTO, steel weight, roofing, rigging and material selection" };
+  const GDESC = { "Pumps": "Power, head, NPSH and complete pump & motor selection", "Piping": "Line sizing, pressure drop, wall thickness and testing", "Vessels & Tanks": "Pressure vessels, storage tanks and tank volumes", "Heat Transfer": "Heat balance, heat exchanger design & selection, steam and insulation loss", "Steam": "Saturated & superheated steam tables and steam trap selection", "Process": "Valve selection, control valves, relief valves, compressors and mixing", "Machine Design": "Motors, IP rating, shafts, bearings, bolts, drives and lifting", "Maintenance": "Reliability, OEE, vibration, spares and FMEA", "Energy & Utilities": "Leaks, motors, VFDs, boilers, chillers and power factor", "Project & Finance": "NPV, earned value, estimates and schedules", "Structures": "Column & beam capacity, shed frame design, roof truss design, beam selection and steel weight", "Materials & Insulation": "Material selection (MOC), chemical compatibility, insulation design and BOM", "Unit Converters": "Quick engineering unit conversions", "Utilities Plus": "Cooling tower, boiler & fuel, compressed air and ventilation selection", "Welding": "Electrodes & bi-metal joints, preheat & PWHT, pipe bevel, and electrode quantity for plate & pipe", "Site & Project": "Project cost, MTO, steel weight, roofing and rigging" };
   function renderGroup(g) {
     ups = []; curSheet = null;
     chrome(g, "", { group: g, back: true });
@@ -343,6 +347,82 @@
     refresh();
   }
 
+
+  // ------------------------------------------------------------ drawings (truss / shed)
+  function trussGeom(k, L, h, n, h0) {
+    const p = L / n, pit = k === "P" || k === "H" || k === "F";
+    if (k === "M") { h0 = h0 || Math.max(0.6, L / 15); const y = x => h0 + (h - h0) * x / L, top = [[0, h0, L, h]], bot = [[0, 0, L, 0]], web = [];
+      for (let j = 0; j <= n; j++) web.push([j * p, 0, j * p, y(j * p)]); for (let j = 1; j <= n; j++) web.push([(j - 1) * p, y((j - 1) * p), j * p, 0]); return { top, bot, web, p }; }
+    const y = x => pit ? h * (1 - Math.abs(2 * x / L - 1)) : h;
+    const top = [], bot = [[0, 0, L, 0]], web = [];
+    if (pit) { top.push([0, 0, L / 2, h], [L / 2, h, L, 0]); } else { top.push([0, h, L, h]); web.push([0, 0, 0, h], [L, 0, L, h]); }
+    for (let j = 1; j <= n; j++) {
+      const a = (j - 1) * p, b = j * p, left = j <= n / 2;
+      if ((k === "P" || k === "H") && j < n) web.push([b, 0, b, y(b)]);
+      if (k === "PF" && j < n) web.push([b, 0, b, h]);
+      if (k === "P" || k === "PF") { if (left) { if (y(a) > 0.001) web.push([a, y(a), b, 0]); } else { if (y(b) > 0.001) web.push([a, 0, b, y(b)]); } }
+      if (k === "H") { if (left) web.push([a, 0, b, y(b)]); else web.push([a, y(a), b, 0]); }
+      if (k === "F") { if (j % 2) web.push([a, 0, b, y(b)]); else web.push([a, y(a), b, 0]); }
+      if (k === "W") { web.push([a, 0, a + p / 2, h], [a + p / 2, h, b, 0]); }
+    }
+    return { top, bot, web, p };
+  }
+  function svgLines(list, sc, ox, oy, H, col, w) { return list.map(l => `<line x1="${(ox + l[0] * sc).toFixed(1)}" y1="${(oy + H - l[1] * sc).toFixed(1)}" x2="${(ox + l[2] * sc).toFixed(1)}" y2="${(oy + H - l[3] * sc).toFixed(1)}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`).join(""); }
+  function drawTruss(k, L, h, n, labels) {
+    if (!(L > 0 && h > 0 && n >= 2)) return "";
+    const g = trussGeom(k, L, h, n), W = 340, sc = Math.min((W - 30) / L, 120 / h), H = h * sc, ox = (W - L * sc) / 2, oy = 14, Ht = H + 58;
+    const sup = x => `<path d="M${x - 7} ${oy + H + 11} L${x} ${oy + H + 1} L${x + 7} ${oy + H + 11} Z" fill="none" stroke="#7E8691" stroke-width="1.2"/>`;
+    const nodes = []; g.top.concat(g.bot, g.web).forEach(l => { nodes.push([l[0], l[1]], [l[2], l[3]]); });
+    const txt = (x, y, t, a) => `<text x="${x}" y="${y}" fill="#9AA2AD" font-size="10.5" text-anchor="${a || "middle"}" font-family="IBM Plex Sans, sans-serif">${t}</text>`;
+    return `<svg viewBox="0 0 ${W} ${Ht}" width="100%" role="img" aria-label="Truss drawing">` +
+      svgLines(g.web, sc, ox, oy, H, "#B7B2A8", 1.6) + svgLines(g.bot, sc, ox, oy, H, "#8FB3D1", 3.2) + svgLines(g.top, sc, ox, oy, H, "#D8B26E", 3.4) +
+      nodes.map(n_ => `<circle cx="${(ox + n_[0] * sc).toFixed(1)}" cy="${(oy + H - n_[1] * sc).toFixed(1)}" r="2.2" fill="#F3EFE7"/>`).join("") +
+      sup(ox) + sup(ox + L * sc) +
+      `<line x1="${ox}" y1="${oy + H + 24}" x2="${ox + L * sc}" y2="${oy + H + 24}" stroke="#5B6470" stroke-width="1"/>` + txt(W / 2, oy + H + 38, `length ${L} m · height ${h.toFixed(2)} m · ${n} panels @ ${(L / n).toFixed(2)} m`) + `</svg>` +
+      `<div class="lg"><span><i style="background:#D8B26E"></i>Top chord${labels[0] ? ": " + labels[0] : ""}</span><span><i style="background:#8FB3D1"></i>Bottom chord${labels[1] ? ": " + labels[1] : ""}</span><span><i style="background:#B7B2A8"></i>Web${labels[2] ? ": " + labels[2] : ""}</span></div>`;
+  }
+  function drawShed(dec, Wd, len, H, rows, nc, rise, nbb, ngc, rf, tk) {
+    if (!(Wd > 0 && H > 0 && rows >= 2 && nc >= 2)) return "";
+    const sps = rows - 1, sp = Wd / sps, W = 340;
+    const txt = (x, y, t) => `<text x="${x}" y="${y}" fill="#9AA2AD" font-size="10" text-anchor="middle" font-family="IBM Plex Sans, sans-serif">${t}</text>`;
+    const ln_ = (a, b, c, d, col, w, da) => `<line x1="${a.toFixed(1)}" y1="${b.toFixed(1)}" x2="${c.toFixed(1)}" y2="${d.toFixed(1)}" stroke="${col}" stroke-width="${w}" ${da ? 'stroke-dasharray="3 3"' : ""} stroke-linecap="round"/>`;
+    // cross-section (full width)
+    const s1 = Math.min((W - 30) / Wd, 95 / (H + rise)), fx = (W - Wd * s1) / 2, base = 12 + (H + rise) * s1;
+    const X = x => fx + x * s1, Y = y => base - y * s1;
+    let out = "";
+    const monoR = /^Mono/.test(rf || "");
+    for (let r = 0; r < rows; r++) out += ln_(X(r * sp), Y(0), X(r * sp), Y(H + (monoR && r > 0 ? rise : 0)), "#8FB3D1", r === 0 || r === rows - 1 ? 3 : 2.4);
+    for (let k = 0; k < sps; k++) {
+      const x0 = k * sp;
+      const mono = /^Mono/.test(rf || ""), flat = /^Flat/.test(rf || "");
+      if (dec === "TRUSS") { const g = trussGeom(tk || "P", sp, rise, Math.max(4, 2 * Math.round(sp / 4))); out += svgLines(g.web, s1, X(x0), Y(H) - rise * s1, rise * s1, "#B7B2A8", 1) + svgLines(g.bot.concat(g.top), s1, X(x0), Y(H) - rise * s1, rise * s1, "#D8B26E", 2.2); }
+      else if (mono) out += ln_(X(x0), Y(H), X(x0 + sp), Y(H + rise), "#D8B26E", 2.8);
+      else if (flat) out += ln_(X(x0), Y(H), X(x0 + sp), Y(H), "#D8B26E", 2.8);
+      else out += ln_(X(x0), Y(H), X(x0 + sp / 2), Y(H + rise), "#D8B26E", 2.8) + ln_(X(x0 + sp / 2), Y(H + rise), X(x0 + sp), Y(H), "#D8B26E", 2.8);
+      for (let i = 1; i <= ngc; i++) out += ln_(X(x0 + sp * i / (ngc + 1)), Y(0), X(x0 + sp * i / (ngc + 1)), Y(H), "#8FB3D1", 1, true);
+    }
+    out += ln_(X(0) - 6, Y(0), X(Wd) + 6, Y(0), "#5B6470", 1);
+    out += txt(W / 2, base + 14, `Section · ${sps} × ${sp.toFixed(1)} m span · ${dec === "TRUSS" ? (TNAME[tk] || "trusses") : dec === "BEAM" ? "I-beam rafters" : "PEB"}`);
+    // plan grid
+    const top2 = base + 30, s2 = Math.min((W - 40) / len, 120 / Wd), px = (W - len * s2) / 2, bay = len / (nc - 1);
+    const PX = x => px + x * s2, PY = y => top2 + y * s2;
+    const braced = [0, nc - 2]; for (let b = 5; b < nc - 2; b += 5) braced.push(b);
+    braced.forEach(b => { for (let k = 0; k < sps; k++) { out += ln_(PX(b * bay), PY(k * sp), PX((b + 1) * bay), PY((k + 1) * sp), "#F07A6B", 1) + ln_(PX(b * bay), PY((k + 1) * sp), PX((b + 1) * bay), PY(k * sp), "#F07A6B", 1); } });
+    for (let r = 0; r < rows; r++) out += ln_(PX(0), PY(r * sp), PX(len), PY(r * sp), "#D8B26E", r === 0 || r === rows - 1 ? 1.6 : 1.2, r !== 0 && r !== rows - 1);
+    for (let i = 0; i < nc; i++) out += ln_(PX(i * bay), PY(0), PX(i * bay), PY(Wd), "#3A4655", 1);
+    for (let r = 0; r < rows; r++) for (let i = 0; i < nc; i++) out += `<rect x="${(PX(i * bay) - 3).toFixed(1)}" y="${(PY(r * sp) - 3).toFixed(1)}" width="6" height="6" fill="${r === 0 || r === rows - 1 ? "#8FB3D1" : "#F3EFE7"}"/>`;
+    const hb = PY(Wd) + 16;
+    out += txt(W / 2, hb, `Plan · ${rows} rows × ${nc} columns = ${rows * nc} · bays ${bay.toFixed(1)} m · red X = braced bays`);
+    return `<svg viewBox="0 0 ${W} ${hb + 8}" width="100%" role="img" aria-label="Shed layout">${out}</svg><div class="lg"><span><i style="background:#8FB3D1"></i>Edge columns</span><span><i style="background:#F3EFE7"></i>Internal columns</span><span><i style="background:#D8B26E"></i>Rafter / truss · tie lines</span><span><i style="background:#F07A6B"></i>Bracing</span><span><i style="background:#8FB3D1;opacity:.6"></i>Dashed = gable wind columns</span></div>`;
+  }
+  const TNAME = { P: "Pratt truss", H: "Howe truss", F: "Fink truss", W: "Warren truss", PF: "Pratt flat truss", M: "mono-pitch truss" };
+  const DRAW = {
+    "ST5 Roof Truss Design": (sheet, page) => { const v = l => { const b = page.blocks.find(x => x.l === l); return b ? book.get(sheet, b.a) : null; }; const cut = t => String(t || "").split(" · ")[0];
+      const all = () => `<details class="tg"><summary>See all truss types</summary>` + [["Pratt (pitched)", "P", "Diagonals in tension – most common for sheds 12–24 m"], ["Howe (pitched)", "H", "Diagonals in compression – short / medium spans"], ["Fink / W (pitched)", "F", "W-shaped web, light – pitched roofs up to ~15 m"], ["Warren (parallel chord)", "W", "Zig-zag web – flat roof, long spans"], ["Pratt (parallel chord)", "PF", "Flat roof truss – pipe-rack & bridge type"]].map(t => `<div class="tg-i"><b>${t[0]}</b><span>${t[2]}</span>${drawTruss(t[1], 15, t[1] === "W" || t[1] === "PF" ? 1.5 : 3, 8, []).replace(/<div class="lg">[\s\S]*$/, "")}</div>`).join("") + `</details>`;
+      return { t: "Truss drawing", f: () => drawTruss(v("Type key"), +v("Truss length (span)"), +v("Rise / depth used"), +v("Panels used"), [cut(v("TOP CHORD")), cut(v("BOTTOM CHORD")), cut(v("WEB MEMBERS"))]), x: all }; },
+    "ST4 Shed Structure Design": (sheet, page) => { const v = l => { const b = page.blocks.find(x => x.l === l); return b ? book.get(sheet, b.a) : null; };
+      return { t: "Column layout & frame sketch", f: () => { const d = v("Decision"); return drawShed(d, +v("Shed width"), +v("Shed length"), +v("Eave (column) height"), +v("Column rows used"), +v("Columns in each row"), +(d === "TRUSS" ? v("Truss rise / depth") : v("Roof rise – beam roof")), +v("Braced bays"), +v("Gable wind columns per span per end"), v("Roof shape"), v("Truss type key")); } }; },
+  };
   function renderCalc2(sheet, page) {
     ups = []; curSheet = sheet;
     const m = meta[sheet] || { code: "", title: sheet, g: "" };
@@ -381,9 +461,20 @@
       hero.append(vb);
     }
     if (GAUGES[sheet]) hero.append(gauge(sheet, GAUGES[sheet](page)));
-    if (textRes.length) {
+    const tblH = textRes.find(b => /^Table columns/.test(b.l)), tblR = textRes.filter(b => /^Table row/.test(b.l));
+    if (tblH) {
+      const wrap = h("div", { class: "stbl-w" }), cap = h("div", { class: "stbl-c" }, "Steam table" + sentence(tblH.l).replace(/^Table columns/i, "")), tb = h("table", { class: "stbl" });
+      const head = h("tr"), body = [];
+      tb.append(h("thead", null, head));
+      const tbody = h("tbody"); tb.append(tbody);
+      bind(sheet, tblH.a, v => { head.innerHTML = ""; String(v || "").split(" │ ").forEach(x => head.append(h("th", null, x))); });
+      tblR.forEach(b => { const tr = h("tr", { class: /this point/.test(b.l) ? "on" : "" }); tbody.append(tr); bind(sheet, b.a, v => { tr.innerHTML = ""; const parts = String(v || "").split(" │ "); tr.hidden = parts.length < 2; parts.forEach(x => tr.append(h("td", null, x))); }); });
+      wrap.append(cap, tb); hero.append(wrap);
+    }
+    const kvRes = textRes.filter(b => b !== tblH && !tblR.includes(b));
+    if (kvRes.length) {
       const kv = h("div", { class: "kv" });
-      textRes.forEach(b => {
+      kvRes.forEach(b => {
         const t = h("div", { class: "kv-v" }), ic = h("span", { class: "kv-i" }), row = h("div", { class: "kv-r" }, h("div", { class: "kv-l" }, sentence(b.l)), h("div", { class: "kv-x" }, ic, t));
         bind(sheet, b.a, v => { const sc = statusOf(v); row.className = "kv-r " + sc + (b.big || b.main ? " key" : ""); ic.innerHTML = ""; if (sc) ic.append(svg(iconFor(sc), "2")); t.textContent = typeof v === "number" ? show(v, b.nf) + (unit(b.u) ? " " + b.u : "") : strip(show(v, b.nf)) + (unit(b.u) && typeof v === "string" && v.length < 14 && v !== "-" ? " " + b.u : ""); row.hidden = v === null || v === ""; });
         kv.append(row);
@@ -396,13 +487,14 @@
       stats.forEach(b => { const v = h("div", { class: "st-v" }), cell = h("div", null, h("div", { class: "st-l" }, sentence(b.l)), v); st.append(cell); bind(sheet, b.a, x => { v.textContent = show(x, b.nf); const u = unit(b.u); if (u && typeof x === "number" && !(u === "%" && /%/.test(b.nf || ""))) v.append(h("small", null, u)); }); });
       hero.append(st);
     }
-    const topIns = ins.length > 0 && (ins.length <= 2 || /^W\d/.test(m.code || ""));
+    const topIns = ins.length > 0 && (ins.length <= 2 || /^(W\d|ST[345]|SM\d|PR10|M9)/.test(m.code || ""));
     if (topIns) {
       const c = h("section", { class: "card fade" });
       ins.forEach(b => { const u = unit(b.u); c.append(h("label", { class: "f stack" }, h("span", { class: "f-l" }, b.l), h("span", { class: "box" }, inputEl(sheet, b), u ? h("span", { class: "u" }, u) : null))); });
       view.append(c); ins.length = 0;
     }
     view.append(hero);
+    if (DRAW[sheet]) { const d = DRAW[sheet](sheet, page), box = h("div", { class: "drw" }); const ex = h("div"); if (d.x) ex.innerHTML = d.x(); view.append(h("section", { class: "card" }, h("div", { class: "grp-t" }, d.t), box, ex)); ups.push(() => { box.innerHTML = d.f(); }); }
     // related calculators
     const i = order.indexOf(sheet), prev = order[i - 1], next = order[i + 1];
     const chip = (x, pre, post) => h("button", { class: "rc", onclick: () => go(x.s) }, pre || "", h("span", { class: "rc-i" }, calcIcon(x)), x.title.split(/[–,(]/)[0].trim(), post || "");
